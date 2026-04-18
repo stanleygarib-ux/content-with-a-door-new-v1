@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content With A Door — Turn Helpful Videos Into Content That Converts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0B2740;
+            --secondary-bg: #234F7A;
+            --accent-bg: #2E78B3;
+            --accent-cyan: #37B7FF;
+            --accent-gold: #F2B700;
+            --accent-orange: #FF8A20;
+            --cta-red: #E53935;
+            --cta-green: #28A745;
+            --text-white: #FFFFFF;
+            --text-light: #B0D4F2;
+            --text-dark: #202224;
+            --shadow-dark: #06121A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 50%, var(--accent-bg) 100%);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(55,183,255,0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--text-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(242,183,0,0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+        
+        .hero h1 span {
+            color: var(--text-light);
+            display: block;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--cta-red), #FF3B30);
+            color: var(--text-white);
+            padding: 20px 48px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 30px rgba(229,57,53,0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(229,57,53,0.5);
+        }
+        
+        .hero-price {
+            margin-top: 24px;
+            font-size: 18px;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        
+        .hero-price span {
+            text-decoration: line-through;
+            opacity: 0.6;
+            margin-right: 8px;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: var(--shadow-dark);
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .problem::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--primary-bg), transparent);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .problem-card {
+            background: linear-gradient(145deg, rgba(35,79,122,0.5), rgba(11,39,64,0.8));
+            border: 1px solid rgba(55,183,255,0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(55,183,255,0.15);
+        }
+        
+        .problem-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--cta-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 36px;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-white);
+        }
+        
+        .problem-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+        
+        .solution-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .solution-intro h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+        
+        .solution-intro p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+        }
+        
+        .framework-box {
+            background: linear-gradient(145deg, rgba(46,120,179,0.3), rgba(35,79,122,0.5));
+            border: 2px solid var(--accent-cyan);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .framework-box h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+        
+        .framework-box p {
+            font-size: 1.25rem;
+            color: var(--text-white);
+        }
+        
+        .content-roles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .role-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            border-left: 4px solid;
+        }
+        
+        .role-card.discovery {
+            border-color: var(--accent-cyan);
+        }
+        
+        .role-card.trust {
+            border-color: var(--accent-gold);
+        }
+        
+        .role-card.direction {
+            border-color: var(--cta-green);
+        }
+        
+        .role-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .role-card.discovery h4 { color: var(--accent-cyan); }
+        .role-card.trust h4 { color: var(--accent-gold); }
+        .role-card.direction h4 { color: var(--cta-green); }
+        
+        .role-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background: var(--shadow-dark);
+            padding: 100px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            background: rgba(35,79,122,0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            background: rgba(35,79,122,0.5);
+            transform: translateX(5px);
+        }
+        
+        .feature-check {
+            width: 32px;
+            height: 32px;
+            background: var(--cta-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .feature-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-white);
+        }
+        
+        .feature-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            text-align: center;
+        }
+        
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(46,120,179,0.4), rgba(35,79,122,0.6));
+            border: 2px solid var(--accent-gold);
+            border-radius: 24px;
+            padding: 60px 48px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .pricing-badge {
+            display: inline-block;
+            background: var(--cta-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--text-light);
+        }
+        
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+        
+        .price-original {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            opacity: 0.6;
+            margin-bottom: 32px;
+        }
+        
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        
+        .pricing-features li {
+            list-style: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--cta-green);
+            font-weight: 700;
+        }
+        
+        .guarantee {
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(40,167,69,0.1);
+            border: 1px solid var(--cta-green);
+            border-radius: 12px;
+        }
+        
+        .guarantee h4 {
+            color: var(--cta-green);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .guarantee p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--shadow-dark);
+            padding: 100px 0;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: rgba(35,79,122,0.3);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 24px 32px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(35,79,122,0.5);
+        }
+        
+        .faq-answer {
+            padding: 0 32px 24px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        /* Footer CTA */
+        .footer-cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+        
+        .footer-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+        
+        .footer-note {
+            margin-top: 32px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        footer {
+            background: var(--shadow-dark);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .problem-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-roles {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card {
+                padding: 40px 24px;
+            }
+            
+            .price {
+                font-size: 3rem;
+            }
+            
+            .framework-box {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 Launch Deal — Save 72%</div>
+                <h1>Content With A Door <span>Turn Helpful YouTube Videos Into Content That Actually Leads Somewhere</span></h1>
+                <p class="hero-subtitle">The hidden gap between views and revenue — and the simple fix most creators miss.</p>
+                <a href="#pricing" class="cta-button">Get Content With A Door Now</a>
+                <p class="hero-price"><span>$97</span> Just $27 (One-Time)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Videos Are Helpful. So Why Aren't They Converting?</h2>
+                <p>You post useful videos. You explain things clearly. You get comments telling you how helpful your content is. And still walk away wondering why none of it is turning into subscribers, leads, calls, or sales.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">📺</div>
+                    <h3>Discovery Content</h3>
+                    <p>Brings people in — but they watch and leave. Great for views, terrible for building a business.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🤝</div>
+                    <h3>Trust Content</h3>
+                    <p>Builds credibility — but it doesn't move anyone forward. They believe you, but they don't act.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🚪</div>
+                    <h3>Direction Content</h3>
+                    <p>The missing piece. Actually guides viewers toward the right next step. This is what transforms channels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-intro">
+                <h2>Introducing Content With A Door</h2>
+                <p>A custom GPT that helps YouTube creators turn helpful videos into content that converts — without turning your channel into a pitch fest.</p>
+            </div>
+            
+            <div class="framework-box">
+                <h3>"Does this video have a door?"</h3>
+                <p>A door is the next step that matches what the viewer naturally wants after the video. Content With A Door helps you build videos that have a job, a message, and a next move.</p>
+            </div>
+            
+            <div class="content-roles">
+                <div class="role-card discovery">
+                    <h4>Discovery</h4>
+                    <p>Bring the right people in. Optimized for search, shareability, and algorithmic reach.</p>
+                </div>
+                <div class="role-card trust">
+                    <h4>Trust</h4>
+                    <p>Help them believe you get it. Build credibility by showing you understand the problem.</p>
+                </div>
+                <div class="role-card direction">
+                    <h4>Direction</h4>
+                    <p>Show them what to do next. Guide viewers toward subscribing, downloading, booking, or buying.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Stops Being Your Problem</h2>
+                <p>Once you start using Content With A Door, these frustrations disappear:</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div class="feature-content">
+                        <h4>Second-guessing what each video is supposed to do</h4>
+                        <p>Every video has a clear job: Discovery, Trust, or Direction</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div class="feature-content">
+                        <h4>Writing helpful content that goes nowhere</h4>
+                        <p>Each video is built around a natural next step from the start</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div class="feature-content">
+                        <h4>Adding CTAs that feel random</h4>
+                        <p>Your call to action matches the promise and momentum of the video</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div class="feature-content">
+                        <h4>Creating lead magnets that don't match the video</h4>
+                        <p>The GPT helps you match the right offer to the right content</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div class="feature-content">
+                        <h4>Spending too long structuring scripts from scratch</h4>
+                        <p>Turn rough ideas into polished scripts in minutes</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-check">✓</div>
+                    <div class="feature-content">
+                        <h4>Publishing without a clear bridge to subscribers or sales</h4>
+                        <p>Every video has a door — a clear path forward</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Investment</h2>
+                <p>For less than the cost of a nice dinner, get a tool that helps turn every video into content that leads somewhere.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-badge">Launch Deal — Save 72%</div>
+                <h3>Content With A Door</h3>
+                <div class="price">$27</div>
+                <div class="price-original">Regular Price: $97</div>
+                <ul class="pricing-features">
+                    <li>Immediate access to the custom GPT</li>
+                    <li>The complete Content With A Door framework</li>
+                    <li>Strategic guidance built into every interaction</li>
+                    <li>Versatile outputs: hooks, scripts, titles, CTAs</li>
+                    <li>Lead magnet ideas matched to your content</li>
+                    <li>Community posts and Shorts ideas</li>
+                    <li>Ongoing use for every video you create</li>
+                </ul>
+                <a href="#" class="cta-button">Get Instant Access — $27</a>
+                <div class="guarantee">
+                    <h4>30-Day "It Just Works" Guarantee</h4>
+                    <p>Use it for 30 days. If it doesn't help you create clearer, more strategic content, get a full refund. No questions asked.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">What is Content With A Door?</div>
+                    <div class="faq-answer">It's a custom GPT inside ChatGPT that helps YouTube creators create content that builds trust and leads viewers toward a clear next step.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Who is this for?</div>
+                    <div class="faq-answer">Coaches, consultants, experts, educators, service providers, and creators who want their content to support subscribers, leads, calls, or sales.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will this make my content sound salesy?</div>
+                    <div class="faq-answer">No. The whole point is to make the next step feel natural and earned, not pushy. The framework is explicitly about guiding viewers without turning your channel into a pitch fest.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What kind of outputs can it create?</div>
+                    <div class="faq-answer">Hooks, intros, scripts, titles, thumbnail text, descriptions, CTA copy, lead magnet ideas, community posts, Shorts ideas, and promotional content.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is this a one-time purchase or subscription?</div>
+                    <div class="faq-answer">One-time purchase. Pay once, use forever.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="footer-cta">
+        <div class="container">
+            <h2>Stop Posting Helpful Videos That Quietly Train People to Leave</h2>
+            <a href="#pricing" class="cta-button">Get Content With A Door — $27</a>
+            <p class="footer-note">P.S. — Every day you post content without a clear next step is a day you're training viewers to leave.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 | All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
