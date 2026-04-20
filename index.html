@@ -361,6 +361,38 @@
             font-size: 0.95rem;
         }
         
+        .bonus-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .bonus-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 32px 28px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        }
+
+        .bonus-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--accent-gold);
+        }
+
+        .bonus-card p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
         /* Pricing Section */
         .pricing {
             padding: 100px 0;
@@ -667,6 +699,34 @@
                         <h4>Publishing without a clear bridge to subscribers or sales</h4>
                         <p>Every video has a door — a clear path forward</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="bonus-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bonuses Included</h2>
+                <p>Everything below is included to help you implement the framework faster and more naturally.</p>
+            </div>
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <h3>Bonus 1: Content With A Door Prompt Pack</h3>
+                    <p>A curated set of ready-to-use prompts designed to help you get better hooks, stronger scripts, smarter CTAs and more strategic YouTube content out of the GPT without guessing what to ask.</p>
+                </div>
+                <div class="bonus-card">
+                    <h3>Bonus 2: Natural CTA Swipe File</h3>
+                    <p>A collection of plug-and-play CTA lines and examples that help you guide viewers toward the right next step without sounding awkward, forced or overly salesy.</p>
+                </div>
+                <div class="bonus-card">
+                    <h3>Bonus 3: Discovery, Trust and Direction Idea Bank</h3>
+                    <p>A categorized bank of video ideas built around the three content roles that matter most, so you can stop staring at a blank page and start creating content with a clear purpose.</p>
+                </div>
+                <div class="bonus-card">
+                    <h3>Bonus 4: Lead Magnet Match Cheat Sheet</h3>
+                    <p>A simple reference guide that helps you choose the right type of lead magnet or next-step offer for each video, so your content and CTA feel aligned and convert more naturally.</p>
                 </div>
             </div>
         </div>
